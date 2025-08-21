@@ -1,0 +1,35 @@
+<!-- templates/produits/liste_produits.html -->
+{% extends 'base.html' %}
+
+{% block title %}Liste des produits - Gestion de Stock{% endblock %}
+
+{% block content %}
+<h1>Liste des Produits</h1>
+<a href="{% url 'ajouter_article' %}">Ajouter un produit</a>
+<table>
+    <thead>
+        <tr>
+            <th>Nom</th>
+            <th>Description</th>
+            <th>Quantité</th>
+            <th>Prix</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for article in articles %}
+        <tr>
+            <td>{{ article.nom }}</td>
+            <td>{{ article.description }}</td>
+            <td>{{ article.quantity }}</td>
+            <td>{{ article.prix }}</td>
+            <td>
+                {% comment %} <a href="{% url 'detail_article' article.id %}">Voir</a> {% endcomment %}
+                {% comment %} <a href="{% url 'modifier_article' article.id %}">Modifier</a>
+                <a href="{% url 'supprimer_article' article.id %}">Supprimer</a> {% endcomment %}
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

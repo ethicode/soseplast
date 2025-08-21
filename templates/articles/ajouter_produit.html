@@ -1,0 +1,13 @@
+<!-- templates/produits/ajouter_produit.html -->
+{% extends 'base.html' %}
+
+{% block title %}Ajouter un produit - Gestion de Stock{% endblock %}
+
+{% block content %}
+<h1>Ajouter un produit</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Ajouter</button>
+</form>
+{% endblock %}
