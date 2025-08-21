@@ -18,7 +18,7 @@ university/
 __pycache__/
 *.pyc
 *.pyo
-/env
+env/
 # Ignore database files
 # Ignore system files
 .DS_Store
