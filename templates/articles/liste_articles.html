@@ -1,35 +1,51 @@
 <!-- templates/produits/liste_produits.html -->
 {% extends 'base.html' %}
 
-{% block title %}Liste des produits - Gestion de Stock{% endblock %}
+{% block title %}
+  SOSEPLAST Liste des produits
+{% endblock %}
 
 {% block content %}
-<h1>Liste des Produits</h1>
-<a href="{% url 'ajouter_article' %}">Ajouter un produit</a>
-<table>
-    <thead>
-        <tr>
-            <th>Nom</th>
-            <th>Description</th>
-            <th>Quantité</th>
-            <th>Prix</th>
-            <th>Actions</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for article in articles %}
-        <tr>
-            <td>{{ article.nom }}</td>
-            <td>{{ article.description }}</td>
-            <td>{{ article.quantity }}</td>
-            <td>{{ article.prix }}</td>
-            <td>
-                {% comment %} <a href="{% url 'detail_article' article.id %}">Voir</a> {% endcomment %}
-                {% comment %} <a href="{% url 'modifier_article' article.id %}">Modifier</a>
-                <a href="{% url 'supprimer_article' article.id %}">Supprimer</a> {% endcomment %}
-            </td>
-        </tr>
-        {% endfor %}
-    </tbody>
-</table>
+  <h1></h1>
+
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Liste des articles</h4>
+          <h6 class="card-subtitle">Exporter les donnees en csv, excel ou pdf </h6>
+          <div class="table-responsive m-t-40">
+            <table id="example23" class="display nowrap table table-hover table-striped border" cellspacing="0" width="100%">
+              <thead>
+                <tr>
+                  <th>Libelle</th>
+                  <th>Quantite</th>
+                  <th>Emplacement</th>
+                  <th>Etat</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for article in articles %}
+                  <tr>
+                    <td><a href="{% url 'detail_article' article.pk %}">{{ article.title }}</a></td>
+                    <td>{{ article.quantity }}</td>
+                    <td>{{ article.Emplacement }}</td>
+                    <td><span class="badge bg-primary">{{ article.etat }}</span></td>
+                    <td class="py-2 m-0">
+                      <div class="button-group p-0 m-0">
+                        <button type="button" class="m-0 btn btn-sm waves-effect waves-light btn-primary">Cession</button>
+                        <button class="m-0 btn btn-sm btn-dark waves-effect waves-light" type="button"><span class="btn-label"><i class="fa fa-heart"></i></span></button>
+                        <button class="m-0 btn btn-sm btn-danger waves-effect waves-light" type="button"><span class="btn-label"><i class="fa fa-heart"></i></span></button>
+                      </div>
+                    </td>
+                  </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 {% endblock %}

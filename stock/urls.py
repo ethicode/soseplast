@@ -12,6 +12,6 @@ urlpatterns = [
     path('articles/', views.liste_articles, name='liste_articles'),
     path('articles/ajouter/', views.ajouter_article, name='ajouter_article'),
     # path('articles/modifier/<int:pk>/', views.modifier_article, name='modifier_article'),
-    # path('articles/detail/<int:pk>/', views.detail_article, name='detail_article'),
+    path('articles/detail/<int:pk>/', views.detail_article, name='detail_article'),
     # path('articles/supprimer/<int:pk>/', views.supprimer_article, name='supprimer_article'),
 ]

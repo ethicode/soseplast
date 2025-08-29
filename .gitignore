@@ -13,7 +13,10 @@ dist/
 build/
 eliteadmin/
 university/
-
+env/
+# Ignore Python virtual environments
+venv/
+.env/
 # Ignore Python cache files
 __pycache__/
 *.pyc
